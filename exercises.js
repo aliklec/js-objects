@@ -14,7 +14,15 @@ Objects in Javascript can be compared to objects in real life. Objects has a col
     
     Console.log your object.
 */
-    
+
+var books = {
+  title: "the obstacle is the way",
+  author: "Ryan Holiday",
+  category: "self help",
+  pages: 200
+}
+
+console.log(books);
   
 /*
 2.  Declare a variable named `dog` and create the following properties (key-value pairs) to the object:
@@ -31,7 +39,16 @@ Objects in Javascript can be compared to objects in real life. Objects has a col
  "My dog `name` is `age` year old and likes to `speak`."
 */ 
 
+var dog = {
+  name: "Sparky",
+  age: 8,
+  vegetarian: false,
+  color: ["black", "white"],
+  speak: "bark!"
 
+}
+
+console.log("My dog " + dog.name + " is " + dog.age + " years old and likes to say " + dog.speak)
 
 //An empty object
 
@@ -47,6 +64,17 @@ Objects in Javascript can be compared to objects in real life. Objects has a col
   Console.log the object.
 */
 
+var kicks = {};
+
+kicks.brand = "adidas";
+kicks.color = "red";
+kicks.size = 7;
+kicks.buy = "Hell Yeah!";
+
+console.log(kicks)
+
+
+
 
 /* 
 
@@ -57,6 +85,13 @@ Objects in Javascript can be compared to objects in real life. Objects has a col
             - add a property named `contents` and set it to be an empty array.
 */
 
+plainBox = {};
+
+plainBox.color = "teal",
+plainBox.size = 5,
+plainBox.contents = []
+
+console.log(plainBox)
 
 /*
 5. Declare a variable named `stockCar` and create the following properties (key-value pairs) to the object:
@@ -67,6 +102,16 @@ Objects in Javascript can be compared to objects in real life. Objects has a col
             - add a key named `passengers` and set it to be an empty array.
 */
 
+stockCar = {
+  model: "honda",
+  year: 2009,
+  automaticTransmission: false,
+  driver: null,
+  passengers: [],
+
+}
+
+console.log(stockCar)
 
 /*
 
@@ -85,6 +130,19 @@ Objects in Javascript can be compared to objects in real life. Objects has a col
    the value at `name`, and just the value at `age`.
  */
 
+var plainPerson = {};
+
+function buildPerson(person,nameString,age){
+
+person.name = nameString
+person.age = age
+return person
+}
+
+var completePerson = buildPerson(plainPerson,"John Oliver",45)
+console.log(completePerson)
+console.log(completePerson.name)
+console.log(completePerson.age)
 
 /*
 7. Display values of objects that are inside an array
@@ -111,6 +169,69 @@ Objects in Javascript can be compared to objects in real life. Objects has a col
             ...
  */
 
+arrayOfObjects = [
+  {
+    id: 0,
+    date: "Monday Jan 25 2015 2:01 PM",
+    total: "279.38"
+  },
+  {
+    id: 1,
+    date: "Monday Jan 27 2015 11:31 AM",
+    total: "79.80"
+  },
+  {
+    id: 2,
+    date: "Monday Feb 1 2015 7:56 AM",
+    total: "15.62"
+  },
+  {
+    id: 3,
+    date: "Monday Feb 1 2015 9:43 AM",
+    total: "19.83"
+  },
+  {
+    id: 4,
+    date: "Monday Feb 1 2015 11:08 PM",
+    total: "56.69"
+  },
+  {
+    id: 5,
+    date: "Monday Feb 13 2015 10:22 AM",
+    total: "137.92"
+  },
+  {
+    id: 6,
+    date: "Monday Feb 14 2015 6:54 PM",
+    total: "938.65"
+  },
+  {
+    id: 7,
+    date: "Monday Feb 14 2015 7:17 PM",
+    total: "43.77"
+  },
+  {
+    id: 8,
+    date: "Monday Feb 14 2015 7:18 PM",
+    total: "28.54"
+  },
+  {
+    id: 9,
+    date: "Monday Feb 14 2015 7:18 PM",
+    total: "194.33"
+  }
+];
+
+function printOrders(orders){
+  for(i=0;i<orders.length;i++){
+    console.log("=====")
+    console.log("id: ",orders[i]["id"]);
+    console.log("purchase date: ",orders[i]["date"]);
+    console.log("purchase total: ",orders[i]["total"]);
+  }
+}
+
+printOrders(arrayOfObjects)
 
 /*
 8. Addition with an object
@@ -124,6 +245,29 @@ Objects in Javascript can be compared to objects in real life. Objects has a col
         Invoke your function and pass in your object, store the result to a variable named sumObjResult and use `console.log` 
         to inspect your results.
 */
+
+console.log("-------------------------")
+console.log("problem 8:")
+
+var subObj  = {
+  a: 13235,
+  b: 7235,
+  result: undefined,
+};
+
+function objectAddition(objectparam){
+  objectparam.result = objectparam.a + objectparam.b;
+  return objectparam
+}
+
+
+objectAddition(subObj)
+var sumObjResult = subObj.result
+console.log(sumObjResult)
+
+console.log("tests:")
+console.log(subObj.a)
+console.log(subObj.b)
 
 
 /*
@@ -143,6 +287,27 @@ Objects in Javascript can be compared to objects in real life. Objects has a col
         **create more** objects and invoke your function multiple times.
  */
 
+console.log("-------------------------")
+console.log("problem 9:")
+
+function printObj(newparam){
+  var message = newparam.a + " + " + newparam.b + " = " + newparam.result;
+  newparam.output = message
+  return newparam
+}
+
+
+console.log(printObj(subObj))
+console.log(subObj.output)
+
+var subObj2  = {
+  a: 20,
+  b: 30,
+  result: undefined,
+};
+
+objectAddition(subObj2)
+console.log(printObj(subObj2))
 
 /*
 10. Putting stuff in `plainBox`
@@ -155,6 +320,20 @@ Objects in Javascript can be compared to objects in real life. Objects has a col
  */
 
 
+
+function putInPlainBox(newobject){
+  for(var i = 0;i<10;i++){
+   newobject.contents[i] = (Math.floor(Math.random() * 100));
+  }
+  return newobject
+}
+
+putInPlainBox(plainBox)
+console.log(plainBox)
+
+
+console.log("Test4thitem", plainBox.contents[4])
+
 /*
 11. Detecting transmission
     Declare a function named detectingTransmission and a single parameter which will be an object. Within this function 
@@ -165,6 +344,17 @@ Objects in Javascript can be compared to objects in real life. Objects has a col
 
     Invoke your function and pass in your stockCar object, store the result to a variable named isAutomaticTransmission and use `console.log` to inspect your results.
  */
+
+function detectingTransmission(myobject){
+  if(myobject.automaticTransmission===true){
+    return "true"
+  }if(myobject.automaticTransmission===false){
+    return "false"
+  }
+}
+
+var isAutomaticTransmission = detectingTransmission(stockCar)
+console.log("automaticTransmission:", isAutomaticTransmission)
 
 
 /*
@@ -178,6 +368,38 @@ Objects in Javascript can be compared to objects in real life. Objects has a col
      Invoke your function and pass in your objects, store the result to a variable named stockCarWithDriver, and inspect 
       your results. Consider using `plainPerson` as your driver.
  */
+
+function addDriver(car,person){
+  car.driver = person;
+  return car;
+}
+
+addDriver(stockCar,plainPerson)
+var stockCarWithDriver = addDriver(stockCar,plainPerson)
+console.log(stockCarWithDriver)
+
+
+console.log("finalbosssssss:")
+
+var passengerList = ['Jon', 'Jason', 'Tony', 'Joe', 'Jesse', 'Nigel', 'Kelli', 'Marifel', 'Victor']
+var passengerAges = [19, 12, 21, 22, 16, 9, 19, 20, 15]
+
+function addPassengers(CAR,NAMES,AGES){
+  CAR.passengers = {i}
+  for(var i = 0; i<NAMES.length ; i++){
+  CAR.passengers = buildPerson(NAMES,NAMES,AGES)
+
+}
+return CAR
+
+}
+
+addPassengers(stockCar,passengerList,passengerAges)
+console.log(stockCar.passengers)
+
+// i give uppppp!
+
+
 
 
 /*
